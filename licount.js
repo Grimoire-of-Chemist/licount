@@ -31,11 +31,38 @@ let licount = function( Config ){
             if (typeof(Config.APPID) != 'undefined' && typeof(Config.APPKEY) != 'undefined'){
 
                 AV.initialize(Config.APPID, Config.APPKEY);
+                LiCount_Main = new AV.Query(AV.Object.extend('LiCount'));
+                LiCount_Lock = false;
 
             } else console.log('「LiCount」APPID or APPKEY are not defined!');
         } else console.log('「LiCount」Being ready to go :)');
 
         //Coding more...
+
+    });
+}, LiCount_Lock = true,LiCount_Main, licount_Show = function ( ID ) {
+    return new Promise(function () {
+
+        //Get the specified count.
+
+         if (!LiCount_Lock) {
+
+             LiCount_Main.equalTo('ID',ID);
+             LiCount_Main.find({
+                 success: function(results) {
+                     if (results.length != 0) {
+                         for (var i = 0; i < results.length; i++) {
+                             var object = results[i];
+                             return object.get('count');
+                         }
+                     } else console.log('「LiCount」' + ID + ' has no data!');
+                 },
+                 error: function(object, error) {
+                     console.log("「LiCount」LeanCloud Javascript SDK Error: " + error.code + " " + error.message);
+                 }
+             });
+
+         } else console.log('「LiCount」"licount_Show()" call failed, because LiCount is not initialized, please first "licount({APPID:\'_Your APPID_\',\'_Your APPKEY_\'});"');
 
     });
 };
