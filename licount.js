@@ -11,6 +11,21 @@ let licount = function( Config ){
 
         // Main
 
+        //Verify or create LeanCloud Javascript SDK.
+        try {
+            if (typeof(AV.version) == 'undefined') console.log('「LiCount」Successfully loaded the LeanCloud SDK, but the version is unknown.');
+                else console.log('「LiCount」Successfully loaded LeanCloud SDK V' + AV.version);
+        }catch (e) {
+            if (e) {
+                console.log('「LiCount」LeanCloud Javascript SDK not found...' + '\n「LiCount」Now, try loading the LeanCloud Javascript SDK.');
+
+                const Load_LC_SDK = document.createElement('script');
+                Load_LC_SDK.setAttribute('src', 'https://cdn.jsdelivr.net/npm/leancloud-storage@3.12.0/dist/av-min.js');
+                document.getElementsByTagName('body')[0].appendChild(Load_LC_SDK);
+                Load_LC_SDK.onload = function() { console.log('「LiCount」LeanCloud is loaded!' + '\n「LiCount」LeanCloud SDK V' + AV.version) }
+            } else console.log('「LiCount」Unknown error: ' + e);
+        }
+
         //Coding more...
 
     });
