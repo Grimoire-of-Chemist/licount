@@ -56,14 +56,16 @@ let LiCount_Lock = true,LiCount_Lock2 = true,LiCount_Main,LiCount_On, licount = 
 
          if (!LiCount_Lock) {
 
+             if (!document.getElementById(ID)) console.log('「LiCount」DOM ID does not exist!');
+
              LiCount_Main.equalTo('ID', ID);
              LiCount_Main.find({
                  success: function( Results ) {
                      if ( Results.length != 0 ) {
-                         for ( var i = 0; i < Results.length; i++ ) return Results[i].get('count');
+                         for ( var i = 0; i < Results.length; i++ ) document.getElementById(ID).innerHTML = Results[i].get('count');
                      } else {
                          console.log('「LiCount」' + ID + ' has no data!');
-                         return 0
+                         document.getElementById(ID).innerHTML = 0
                      }
                  },
                  error: function( object, error ) {
@@ -81,6 +83,8 @@ let LiCount_Lock = true,LiCount_Lock2 = true,LiCount_Main,LiCount_On, licount = 
 
         if (!LiCount_Lock) {
 
+            if (!document.getElementById(ID)) console.log('「LiCount」DOM ID does not exist!');
+
             LiCount_Main.equalTo('ID', ID);
             LiCount_Main.find({
                 success: function( Results ) {
@@ -90,7 +94,7 @@ let LiCount_Lock = true,LiCount_Lock2 = true,LiCount_Main,LiCount_On, licount = 
                         licount_.increment('count');
                         licount_.save(null, {
                             success: function( ResultGet ) {
-                                return ResultGet.get('count');
+                                document.getElementById(ID).innerHTML = ResultGet.get('count');
                             },
                             error: function( ResultGet, error ) { console.log('「LiCount」LeanCloud Javascript SDK Failed to save Visitor num, with error message: ' + error.message) }
                         });
@@ -100,7 +104,7 @@ let LiCount_Lock = true,LiCount_Lock2 = true,LiCount_Main,LiCount_On, licount = 
                         LiCount_On_To.set('count', 1);
                         LiCount_On_To.save(null, {
                             success: function( ResultGet ) {
-                                return ResultGet.get('count');
+                                document.getElementById(ID).innerHTML = ResultGet.get('count');
                             },
                             error: function( ResultGet, error ) { console.log('「LiCount」LeanCloud Javascript SDK Failed to create!') }
                         });
