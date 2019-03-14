@@ -26,6 +26,15 @@ let licount = function( Config ){
             } else console.log('「LiCount」Unknown error: ' + e);
         }
 
+        //Judging and create configuration.
+        if (typeof(Config) != 'undefined') {
+            if (typeof(Config.APPID) != 'undefined' && typeof(Config.APPKEY) != 'undefined'){
+
+                AV.initialize(Config.APPID, Config.APPKEY);
+
+            } else console.log('「LiCount」APPID or APPKEY are not defined!');
+        } else console.log('「LiCount」Being ready to go :)');
+
         //Coding more...
 
     });
