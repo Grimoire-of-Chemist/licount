@@ -55,7 +55,10 @@ let licount = function( Config ){
                              var object = results[i];
                              return object.get('count');
                          }
-                     } else console.log('「LiCount」' + ID + ' has no data!');
+                     } else {
+                         console.log('「LiCount」' + ID + ' has no data!');
+                         return 0
+                     }
                  },
                  error: function(object, error) {
                      console.log("「LiCount」LeanCloud Javascript SDK Error: " + error.code + " " + error.message);
