@@ -23,7 +23,9 @@ let LiCount_Lock = true,LiCount_Lock2 = true,LiCount_Main,LiCount_On, licount = 
                 Load_LC_SDK.setAttribute('src', 'https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js');
                 document.getElementsByTagName('body')[0].appendChild(Load_LC_SDK);
                 Load_LC_SDK.onload = function() {
-                    console.log('「LiCount」LeanCloud is loaded!' + '\n「LiCount」LeanCloud SDK V' + AV.version);
+                    console.log('「LiCount」LeanCloud is loaded!');
+                    if (typeof(AV.version) == 'undefined') { console.log('「LiCount」Successfully loaded the LeanCloud SDK, but the version is unknown.'); LiCount_Lock2 = false; On() }
+                    else console.log('「LiCount」Successfully loaded LeanCloud SDK V' + AV.version);
                     LiCount_Lock2 = false;
                     On()
                 }
