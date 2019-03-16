@@ -36,16 +36,18 @@ licount is a JavaScript based web component that can bind DOM display and update
  
  
  ### Third step
- Now, you must create a DOM for displaying LiCount, and you may need to call LiCount inside `window.onload = function (){ }` to prevent [LeanCloud Javascript SDK](https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js) from loading.
+ Now, you must create several DOMs for displaying LiCount, `Show` to display the count after loading, `Add` to display and update the count after loading, and `ViewCount` to display the DOM on the screen and count.
  ```
-    <div id="licount_demo"></div>
+    <div id="licount_Show_demo"></div>
+    <div id="licount_ViewCount_demo"></div>
+    <div id="licount_Add_demo"></div>
     <script src="licount.js"></script>
     <script>
-        licount({APPID:'_Your APPID_',APPKEY:'_Your APPKEY_'});
-        window.onload = function (){
-            licount_Add('licount_demo'); // Automatic update and display count.
-            //licount_Show('licount_demo'); // Display count.
-        }
+        licount({APPID:'_Your APPID_',APPKEY:'_Your APPKEY_',Main:[
+            ['licount_Show_demo','Show'], //Display count.
+            ['licount_Add_demo','Add'], //Automatic update and display count.
+            ['licount_ViewCount_demo','ViewCount'] //The screen displays the DOM count.
+        ]});
     </script>
  ```
  
