@@ -1,5 +1,5 @@
 // Javascript licount - Simple lightweight counting component.
-// // Released under GNU General Public License v3.0 Opensourced. (https://github.com/LF112/licount/)
+// Released under GNU General Public License v3.0 Opensourced. (https://github.com/LF112/licount/)
 // Author @LF112 (https://github.com/lf112)
 // Copyright reservation is required.
 

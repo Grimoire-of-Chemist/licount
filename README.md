@@ -1,6 +1,8 @@
 <h1 align="center">Introduce You with LiCount</h1>
 
->Simple lightweight counting component.
+><h3 align="center">Simple lightweight counting component.</h3>
+
+>[中文文档](https://github.com/LF112/licount/blob/master/README_CN.md)
 
 ## Story Behind LiCount
 After developing the [LCookie](https://github.com/lf112/lcookie), I think Lcookie Project Documents needs a page visit count, so I think of [LeanCloud](https://leancloud.cn/)'s data storage service, I made this `.js`, but this API is very fast, so don't worry about speed.
@@ -38,10 +40,10 @@ licount is a JavaScript based web component that can bind DOM display and update
  ### Third step
  Now, you must create several DOMs for displaying LiCount, `Show` to display the count after loading, `Add` to display and update the count after loading, and `ViewCount` to display the DOM on the screen and count.
  ```
-    <div id="licount_Show_demo"></div>
-    <div id="licount_ViewCount_demo"></div>
-    <div id="licount_Add_demo"></div>
-    <script src="licount.js"></script>
+    <div id="licount_Show_demo">0</div>
+    <div id="licount_ViewCount_demo">0</div>
+    <div id="licount_Add_demo">0</div>
+    <script src="licount.js">0</script>
     <script>
         licount({APPID:'_Your APPID_',APPKEY:'_Your APPKEY_',Main:[
             ['licount_Show_demo','Show'], //Display count.
