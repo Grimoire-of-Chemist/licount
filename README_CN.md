@@ -3,7 +3,7 @@
 ><h3 align="center">轻量级计数框架</h3>
 
 ## LiCount 为何诞生于世
-在开发了  [LCookie](https://github.com/lf112/lcookie) 之后，我觉得 Lcookie [项目文档页](https://lcookie.js.org)需要页面访问次数，然后我就想起有个数据存储服务叫 [LeanCloud](https://leancloud.cn/)，然后我就开发了这个`.js`，但是不用担心速度，这个API非常快。
+在开发了  [LCookie](https://github.com/lf112/lcookie) 之后，我觉得 Lcookie [项目文档页](https://lcookie.js.org)需要页面访问次数，然后我就想起有个数据存储服务叫 [LeanCloud](https://leancloud.cn/)，之后我就开发了这个`.js`，但是不用担心速度，这个API非常快。
 
 ## 描述
 `LiCount`是一个基于JavaScript的Web组件，可以绑定DOM来显示和更新计数，目前支持计数页面访问和在DOM显示的时候计数。
